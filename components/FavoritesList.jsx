@@ -1,13 +1,20 @@
-// components/FavoritesList.js
 import React from 'react';
+import styles from './FavoritesList.module.css'
 
-const FavoritesList = ({ favorites }) => {
+const FavoritesList = ({ favorites, removeFromFavorites }) => {
   return (
     <div>
-      <h3>Favorites</h3>
-      <ul>
+      <h2 className={styles.h2}>Favorites</h2>
+      <ul className={styles.ul}>
         {favorites.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <div className={styles.movieItem} key={movie.id}>
+            <li>
+              {movie.title}
+              <button className={styles.closeButton} onClick={() => removeFromFavorites(movie.id)}>
+                Remove
+              </button>
+            </li>
+          </div>
         ))}
       </ul>
     </div>

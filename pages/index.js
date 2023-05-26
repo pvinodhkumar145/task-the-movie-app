@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar';
 import MovieList from '../components/MovieList';
 import MovieDetails from '../components/MovieDetails';
 import FavoritesList from '../components/FavoritesList';
+import styles from './index.module.css'
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -38,6 +39,12 @@ const Home = () => {
     }
   };
 
+  const removeFromFavorites = (movieId) => {
+    const updatedFavorites = favorites.filter(m => m.id !== movieId)
+    setFavorites(updatedFavorites)
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  }
+
   useEffect(() => {
     // Load favorites from local storage
     const storedFavorites = localStorage.getItem('favorites');
@@ -47,11 +54,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <SearchBar onSearch={handleSearch} />
       <MovieList movies={searchResults} onMovieClick={handleMovieClick} />
       {selectedMovie && <MovieDetails movie={selectedMovie} onClose={handleMovieClose} />}
-      <FavoritesList favorites={favorites} />
+      <FavoritesList favorites={favorites} removeFromFavorites={removeFromFavorites} />
     </div>
   );
 };

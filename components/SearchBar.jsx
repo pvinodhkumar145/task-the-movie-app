@@ -1,5 +1,6 @@
 // components/SearchBar.js
 import React, { useState } from 'react';
+import styles from './SearchBar.module.css'
 import axios from 'axios';
 
 const SearchBar = ({ onSearch }) => {
@@ -23,8 +24,8 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div>
-      <input type="text" value={searchTerm} onChange={handleInputChange} />
-      <button onClick={handleSearch}>Search</button>
+      <input type="text" value={searchTerm} onChange={handleInputChange}  className={styles.input}/>
+      <button className={styles.button} onClick={handleSearch}>Search</button>
     </div>
   );
 };

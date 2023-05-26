@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+/* .container{
+  text-align: center;
+  color: red;
+} */

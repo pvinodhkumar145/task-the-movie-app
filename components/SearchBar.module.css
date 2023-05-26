@@ -1,0 +1,27 @@
+/* SearchBar.module.css */
+.button {
+    background-color: #2e7230;
+    color: white;
+    padding: 5px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 5px 5px 0px;
+  }
+  
+  .button:hover {
+    background-color: #17911d;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+.input[type="text"] {
+    padding: 4px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0px 0px 5px;
+    margin-top: 20px;
+    min-width: 300px;
+   }
+  
